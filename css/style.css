@@ -54,3 +54,38 @@ body {
     border: 1px solid rgba(255,255,255,0.1);
     transition: 0.3s ease;
 }
+
+.task-input::placeholder {
+    color: #cbd5e1;
+}
+
+.task-input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 12px rgba(56,189,248,0.5);
+}
+
+.add-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #38bdf8, #2563eb);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-bottom: 25px;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+.task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
