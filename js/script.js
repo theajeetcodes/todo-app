@@ -22,3 +22,16 @@ const taskList = document.createElement("ul");
 taskList.classList.add("task-list");
 largeBox.appendChild(taskList);
 
+button.addEventListener("click", () => {
+    const taskText = input.value;
+    if (taskText === "") {
+        return;
+    }
+    const li = document.createElement("li");
+    li.textContent = taskText;
+    taskList.appendChild(li);
+    input.value = "";
+});
+
+
+
