@@ -28,10 +28,25 @@ button.addEventListener("click", () => {
         return;
     }
     const li = document.createElement("li");
-    li.textContent = taskText;
+    li.classList.add("task-item");
+    
+    const span = document.createElement("span");
+    span.textContent = taskText;
+    li.appendChild(span);
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.textContent = "delete";
+    li.appendChild(deleteBtn);
+
+    deleteBtn.addEventListener("click", () => {
+    li.remove();
+    });
+
     taskList.appendChild(li);
     input.value = "";
 });
+
 
 
 
