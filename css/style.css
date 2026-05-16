@@ -89,3 +89,29 @@ body {
     flex-direction: column;
     gap: 15px;
 }
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.delete-btn {
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: #ef4444;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.delete-btn:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
