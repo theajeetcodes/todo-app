@@ -115,3 +115,8 @@ body {
     opacity: 0.8;
     transform: scale(1.05);
 }
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}

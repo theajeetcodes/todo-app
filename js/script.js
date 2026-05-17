@@ -32,6 +32,9 @@ button.addEventListener("click", () => {
     
     const span = document.createElement("span");
     span.textContent = taskText;
+    span.addEventListener("click", () => {
+        span.classList.toggle("completed");
+    })
     li.appendChild(span);
 
     const deleteBtn = document.createElement("button");
