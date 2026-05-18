@@ -37,6 +37,16 @@ button.addEventListener("click", () => {
     })
     li.appendChild(span);
 
+    const editBtn = document.createElement("button");
+    editBtn.classList.add("edit-btn");
+    editBtn.textContent = "Edit";
+    li.appendChild(editBtn);
+
+    editBtn.addEventListener("click", () => {
+        input.value = span.textContent;
+        li.remove();
+    })
+
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("delete-btn");
     deleteBtn.textContent = "delete";
