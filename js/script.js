@@ -37,10 +37,14 @@ button.addEventListener("click", () => {
     })
     li.appendChild(span);
 
+    const btnBox = document.createElement("div");
+    btnBox.classList.add("btn-box");
+    li.appendChild(btnBox);
+
     const editBtn = document.createElement("button");
     editBtn.classList.add("edit-btn");
     editBtn.textContent = "Edit";
-    li.appendChild(editBtn);
+    btnBox.appendChild(editBtn);
 
     editBtn.addEventListener("click", () => {
         input.value = span.textContent;
@@ -50,7 +54,7 @@ button.addEventListener("click", () => {
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("delete-btn");
     deleteBtn.textContent = "delete";
-    li.appendChild(deleteBtn);
+    btnBox.appendChild(deleteBtn);
 
     deleteBtn.addEventListener("click", () => {
     li.remove();
