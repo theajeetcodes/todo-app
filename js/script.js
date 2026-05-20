@@ -18,23 +18,35 @@ button.classList.add("add-btn");
 button.textContent = "Add";
 largeBox.appendChild(button);
 
+const counter = document.createElement("p");
+counter.classList.add("counter");
+counter.textContent = "Total Tasks: 0";
+largeBox.appendChild(counter);
+
 const taskList = document.createElement("ul");
 taskList.classList.add("task-list");
 largeBox.appendChild(taskList);
 
-button.addEventListener("click", () => {
-    const taskText = input.value;
+function updateCounter() {
+    const totalTasks = document.querySelectorAll(".task-item").length;
+    counter.textContent = `Total Task: ${totalTasks}`;
+}
+
+function addTask() {
+    const taskText = input.value.trim();
+
     if (taskText === "") {
         return;
     }
+
     const li = document.createElement("li");
     li.classList.add("task-item");
-    
+
     const span = document.createElement("span");
     span.textContent = taskText;
     span.addEventListener("click", () => {
         span.classList.toggle("completed");
-    })
+    });
     li.appendChild(span);
 
     const btnBox = document.createElement("div");
@@ -49,7 +61,9 @@ button.addEventListener("click", () => {
     editBtn.addEventListener("click", () => {
         input.value = span.textContent;
         li.remove();
-    })
+
+        updateCounter();
+    });
 
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("delete-btn");
@@ -58,10 +72,20 @@ button.addEventListener("click", () => {
 
     deleteBtn.addEventListener("click", () => {
     li.remove();
+
+    updateCounter();
     });
 
     taskList.appendChild(li);
     input.value = "";
+    updateCounter();
+}
+
+button.addEventListener("click", addTask);
+input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        addTask();
+    }
 });
 
 
