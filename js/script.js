@@ -32,6 +32,10 @@ function updateCounter() {
     counter.textContent = `Total Task: ${totalTasks}`;
 }
 
+function saveTasks() {
+    localStorage.setItem("tasks",taskList.innerHTML);
+}
+
 function addTask() {
     const taskText = input.value.trim();
 
@@ -46,6 +50,7 @@ function addTask() {
     span.textContent = taskText;
     span.addEventListener("click", () => {
         span.classList.toggle("completed");
+        saveTasks();
     });
     li.appendChild(span);
 
@@ -63,6 +68,7 @@ function addTask() {
         li.remove();
 
         updateCounter();
+        saveTasks();
     });
 
     const deleteBtn = document.createElement("button");
@@ -74,11 +80,13 @@ function addTask() {
     li.remove();
 
     updateCounter();
+    saveTasks();
     });
 
     taskList.appendChild(li);
     input.value = "";
     updateCounter();
+    saveTasks();
 }
 
 button.addEventListener("click", addTask);
@@ -86,6 +94,12 @@ input.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         addTask();
     }
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+    taskList.innerHTML = localStorage.getItem("tasks") || "";
+
+    updateCounter();
 });
 
 
