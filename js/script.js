@@ -47,11 +47,8 @@ function addTask() {
     li.classList.add("task-item");
 
     const span = document.createElement("span");
+    span.classList.add("task-text");
     span.textContent = taskText;
-    span.addEventListener("click", () => {
-        span.classList.toggle("completed");
-        saveTasks();
-    });
     li.appendChild(span);
 
     const btnBox = document.createElement("div");
@@ -63,25 +60,10 @@ function addTask() {
     editBtn.textContent = "Edit";
     btnBox.appendChild(editBtn);
 
-    editBtn.addEventListener("click", () => {
-        input.value = span.textContent;
-        li.remove();
-
-        updateCounter();
-        saveTasks();
-    });
-
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("delete-btn");
     deleteBtn.textContent = "delete";
     btnBox.appendChild(deleteBtn);
-
-    deleteBtn.addEventListener("click", () => {
-    li.remove();
-
-    updateCounter();
-    saveTasks();
-    });
 
     taskList.appendChild(li);
     input.value = "";
@@ -100,6 +82,30 @@ window.addEventListener("DOMContentLoaded", () => {
     taskList.innerHTML = localStorage.getItem("tasks") || "";
 
     updateCounter();
+});
+
+taskList.addEventListener("click", (event) => {
+    if (event.target.classList.contains("delete-btn")) {
+        const li = event.target.closest(".task-item");
+        li.remove();
+        updateCounter();
+        saveTasks();
+    }
+
+    if (event.target.classList.contains("task-text")) {
+        event.target.classList.toggle("completed");
+
+        saveTasks();
+    }
+
+    if (event.target.classList.contains("edit-btn")) {
+        const li = event.target.closest(".task-item");
+        const taskText = li.querySelector(".task-text").textContent;
+        input.value = taskText;
+        li.remove();
+        updateCounter();
+        saveTasks();
+    }
 });
 
 
