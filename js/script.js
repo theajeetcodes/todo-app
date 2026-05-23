@@ -23,6 +23,11 @@ counter.classList.add("counter");
 counter.textContent = "Total Tasks: 0";
 largeBox.appendChild(counter);
 
+const clearBtn = document.createElement("button");
+clearBtn.classList.add("clear-btn");
+clearBtn.textContent = "Clear-All";
+largeBox.appendChild(clearBtn);
+
 const taskList = document.createElement("ul");
 taskList.classList.add("task-list");
 largeBox.appendChild(taskList);
@@ -106,6 +111,13 @@ taskList.addEventListener("click", (event) => {
         updateCounter();
         saveTasks();
     }
+});
+
+clearBtn.addEventListener("click", () => {
+    taskList.innerHTML = "";
+
+    updateCounter();
+    saveTasks();
 });
 
 
