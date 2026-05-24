@@ -28,6 +28,25 @@ clearBtn.classList.add("clear-btn");
 clearBtn.textContent = "Clear-All";
 largeBox.appendChild(clearBtn);
 
+const filterBox = document.createElement("div");
+filterBox.classList.add("filter-box");
+largeBox.appendChild(filterBox);
+
+const allBtn = document.createElement("button");
+allBtn.classList.add("filter-btn");
+allBtn.textContent = "All";
+filterBox.appendChild(allBtn);
+
+const completedBtn = document.createElement("button");
+completedBtn.classList.add("filter-btn");
+completedBtn.textContent = "Completed";
+filterBox.appendChild(completedBtn);
+
+const pendingBtn = document.createElement("button");
+pendingBtn.classList.add("filter-btn");
+pendingBtn.textContent = "Pending";
+filterBox.appendChild(pendingBtn);
+
 const taskList = document.createElement("ul");
 taskList.classList.add("task-list");
 largeBox.appendChild(taskList);
