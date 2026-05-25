@@ -159,3 +159,25 @@ body {
     opacity: 0.8;
     transform: translateY(-2px);
 }
+
+.filter-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #334155;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: #475569;
+    transform: translateY(-2PX);
+}
