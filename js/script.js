@@ -139,6 +139,42 @@ clearBtn.addEventListener("click", () => {
     saveTasks();
 });
 
+allBtn.addEventListener("click", () => {
+    const tasks = document.querySelectorAll(".task-item");
+
+    tasks.forEach((task) => {
+        task.style.display = "flex";
+    });
+});
+
+completedBtn.addEventListener("click", () => {
+    const tasks = document.querySelectorAll(".task-item");
+
+    tasks.forEach((task) => {
+        const text = task.querySelector(".task-text");
+
+        if (text.classList.contains("completed")) {
+            task.style.display = "flex";
+        } else {
+            task.style.display = "none";
+        }
+    });
+});
+
+pendingBtn.addEventListener("click", () => {
+    const tasks = document.querySelectorAll(".task-item");
+
+    tasks.forEach((task) => {
+        const text = task.querySelector(".task-text");
+
+        if (!text.classList.contains("completed")) {
+            task.style.display = "flex";
+        } else {
+            task.style.display = "none";
+        }
+    });
+});
+
 
 
 
