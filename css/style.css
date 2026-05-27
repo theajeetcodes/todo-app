@@ -181,3 +181,7 @@ body {
     background: #475569;
     transform: translateY(-2PX);
 }
+
+.active-filter {
+    background: #2563eb;
+}

@@ -140,6 +140,8 @@ clearBtn.addEventListener("click", () => {
 });
 
 allBtn.addEventListener("click", () => {
+    removeActiveClass();
+    allBtn.classList.add("active-filter");
     const tasks = document.querySelectorAll(".task-item");
 
     tasks.forEach((task) => {
@@ -147,7 +149,15 @@ allBtn.addEventListener("click", () => {
     });
 });
 
+function removeActiveClass() {
+    allBtn.classList.remove("active-filter");
+    completedBtn.classList.remove("active-filter");
+    pendingBtn.classList.remove("active-filter");
+}
+
 completedBtn.addEventListener("click", () => {
+    removeActiveClass();
+    completedBtn.classList.add("active-filter");
     const tasks = document.querySelectorAll(".task-item");
 
     tasks.forEach((task) => {
@@ -162,6 +172,8 @@ completedBtn.addEventListener("click", () => {
 });
 
 pendingBtn.addEventListener("click", () => {
+    removeActiveClass();
+    pendingBtn.classList.add("active-filter");
     const tasks = document.querySelectorAll(".task-item");
 
     tasks.forEach((task) => {
