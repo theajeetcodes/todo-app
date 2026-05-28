@@ -28,6 +28,11 @@ clearBtn.classList.add("clear-btn");
 clearBtn.textContent = "Clear-All";
 largeBox.appendChild(clearBtn);
 
+const searchInput = document.createElement("input");
+searchInput.classList.add("search-input");
+searchInput.placeholder = "search Task...";
+largeBox.appendChild(searchInput);
+
 const filterBox = document.createElement("div");
 filterBox.classList.add("filter-box");
 largeBox.appendChild(filterBox);
