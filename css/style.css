@@ -185,3 +185,25 @@ body {
 .active-filter {
     background: #2563eb;
 }
+
+.search-input {
+    width: 100%;
+    padding: 14px 18px;
+    border: none;
+    outline: none;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.search-input::placeholder {
+    color: #cbd5e1;
+}
+
+.search-input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 12px rgba(56,189, 248,0.5);
+}
